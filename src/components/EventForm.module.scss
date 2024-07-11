@@ -16,6 +16,7 @@
   }
 }
 
+
 .actions {
   display: flex;
   gap: 1rem;
@@ -34,12 +35,17 @@
       background-color: var(--color-primary-300);
     }
   }
-  button[type="button"] {
+  button[type='button'] {
     background-color: transparent;
     color: var(--color-gray-300);
 
     &:hover {
       background-color: var(--color-gray-800);
     }
+
   }
+
 }
+
+
+
