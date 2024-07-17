@@ -1,9 +1,8 @@
-
 import { redirect } from "react-router-dom";
 
 // 로그인한 유저의 정보 가져오기
 const getUserData = () => {
-  const userDataJson = localStorage.getItem('userData');
+  const userDataJson = localStorage.getItem("userData");
   const userData = JSON.parse(userDataJson);
 
   return userData;
@@ -16,7 +15,7 @@ export const getUserToken = () => {
 
 // 로그인 회원정보를 불러오는 loader
 export const userDataLoader = () => {
-  console.log('userDataLoader call!');
+  console.log("userDataLoader call!");
   return getUserData();
 };
 
@@ -25,8 +24,8 @@ export const authCheckLoader = () => {
   const userData = getUserData();
 
   if (!userData) {
-    alert('로그인이 필요한 서비스입니다.');
-    return redirect('/');
+    alert("로그인이 필요한 서비스입니다.");
+    return redirect("/");
   }
   return null; // 현재페이지에 머묾
 };
