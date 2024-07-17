@@ -1,7 +1,7 @@
-import React, { useEffect, useRef, useState } from "react";
-import styles from "./SignUpForm.module.scss";
-import { AUTH_URL } from "../../config/host-config";
-import { debounce } from "lodash";
+import React, { useEffect, useRef, useState } from 'react';
+import styles from './SignUpForm.module.scss';
+import { AUTH_URL } from '../../config/host-config';
+import { debounce } from 'lodash';
 
 const EmailInput = ({ onSuccess }) => {
   const inputRef = useRef();
@@ -10,7 +10,7 @@ const EmailInput = ({ onSuccess }) => {
   const [emailVaild, setEmailValid] = useState(false);
 
   // 에러 메시지
-  const [error, setError] = useState("");
+  const [error, setError] = useState('');
 
   // 이메일 패턴 검증
   const validateEmail = (email) => {
@@ -22,7 +22,7 @@ const EmailInput = ({ onSuccess }) => {
   const checkEmail = debounce(async (email) => {
     if (!validateEmail(email)) {
       // 에러메시지 세팅
-      setError("이메일 형식이 유효하지 않습니다.");
+      setError('이메일 형식이 유효하지 않습니다.');
       return;
     }
 
@@ -33,13 +33,14 @@ const EmailInput = ({ onSuccess }) => {
     // console.log('flag: ', flag);
     if (flag) {
       setEmailValid(false);
-      setError("이메일이 중복되었습니다.");
+      setError('이메일이 중복되었습니다.');
       return;
     }
 
-    //이메일 중복확인 끝
+    // 이메일 중복확인 끝
     setEmailValid(true);
     onSuccess(email);
+
   }, 1500);
 
   const changeHandler = (e) => {
@@ -62,7 +63,7 @@ const EmailInput = ({ onSuccess }) => {
         type="email"
         placeholder="Enter your email"
         onChange={changeHandler}
-        className={!emailVaild ? styles.invalidInput : ""}
+        className={!emailVaild ? styles.invalidInput : ''}
       />
       {!emailVaild && <p className={styles.errorMessage}>{error}</p>}
     </>
